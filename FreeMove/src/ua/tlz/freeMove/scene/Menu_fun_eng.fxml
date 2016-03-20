@@ -8,15 +8,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.tlz.freeMove.scene.MainMenu">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.tlz.freeMove.scene.MainRozv">
    <children>
       <HBox fx:id="title" alignment="CENTER" prefHeight="140.0" prefWidth="700.0">
          <children>
-            <Button fx:id="b_back" mnemonicParsing="false" onAction="#back" prefHeight="80.0" prefWidth="80.0" text="←">
+            <Button fx:id="b_back_in" mnemonicParsing="false" onAction="#backin" prefHeight="80.0" prefWidth="80.0" text="←">
                <effect>
                   <InnerShadow />
                </effect></Button>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="71.0" prefWidth="472.0" text="Транспорт" textAlignment="CENTER" textFill="#33cc33" textOverrun="CENTER_ELLIPSIS">
+            <Label alignment="CENTER" prefHeight="71.0" prefWidth="472.0" text="Leisure" textFill="#33cc33">
                <font>
                   <Font name="Times New Roman Bold Italic" size="64.0" />
                </font>
@@ -29,11 +29,11 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="b1" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Залізниця" textFill="#33cc33">
+            <Button fx:id="b1" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Active" textFill="#33cc33">
                <effect>
                   <InnerShadow />
                </effect></Button>
-            <Button fx:id="b2" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Автобуси" textFill="#33cc33">
+            <Button fx:id="b2" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Family" textFill="#33cc33">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -45,11 +45,11 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="b3" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Літаки" textFill="#33cc33">
+            <Button fx:id="b3" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Relax" textFill="#33cc33">
                <effect>
                   <InnerShadow />
                </effect></Button>
-            <Button fx:id="b4" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Таксі" textFill="#33cc33">
+            <Button fx:id="b4" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Clubs/Bars" textFill="#33cc33">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>

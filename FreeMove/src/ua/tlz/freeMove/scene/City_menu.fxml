@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.HBox?>
@@ -12,30 +13,24 @@
    <children>
       <HBox fx:id="title" alignment="CENTER" prefHeight="140.0" prefWidth="700.0">
          <children>
-            <Button fx:id="b_back" mnemonicParsing="false" onAction="#back" prefHeight="80.0" prefWidth="80.0" text="←">
-               <effect>
-                  <InnerShadow />
-               </effect></Button>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="71.0" prefWidth="472.0" text="Транспорт" textAlignment="CENTER" textFill="#33cc33" textOverrun="CENTER_ELLIPSIS">
+            <Label alignment="CENTER" prefHeight="79.0" prefWidth="340.0" text="FreeMove" textFill="#33cc33">
                <font>
-                  <Font name="Times New Roman Bold Italic" size="64.0" />
+                  <Font name="Times New Roman Bold Italic" size="71.0" />
                </font>
             </Label>
+            <CheckBox fx:id="cb_ua" mnemonicParsing="false" onAction="#check_ua" selected="true" text="UA">
+               <HBox.margin>
+                  <Insets left="110.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="cb_eng" mnemonicParsing="false" onAction="#check_eng" text="ENG">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </CheckBox>
             <Button fx:id="b_close" mnemonicParsing="false" onAction="#close" prefHeight="80.0" prefWidth="80.0" text="卐">
-               <effect>
-                  <InnerShadow />
-               </effect></Button>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button fx:id="b1" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Залізниця" textFill="#33cc33">
-               <effect>
-                  <InnerShadow />
-               </effect></Button>
-            <Button fx:id="b2" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Автобуси" textFill="#33cc33">
                <HBox.margin>
-                  <Insets left="20.0" />
+                  <Insets left="10.0" />
                </HBox.margin>
                <effect>
                   <InnerShadow />
@@ -45,18 +40,26 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="b3" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Літаки" textFill="#33cc33">
+            <Button mnemonicParsing="false" onAction="#odesa" prefHeight="75.0" prefWidth="220.0" text="Одеса" textFill="#33cc33">
                <effect>
                   <InnerShadow />
                </effect></Button>
-            <Button fx:id="b4" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Таксі" textFill="#33cc33">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Київ" textFill="#33cc33">
                <effect>
                   <InnerShadow />
-               </effect>
-            </Button>
+               </effect></Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Львів" textFill="#33cc33">
+               <effect>
+                  <InnerShadow />
+               </effect></Button>
          </children>
       </HBox>
    </children>

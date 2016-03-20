@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -11,32 +12,50 @@
    <children>
       <HBox fx:id="title" alignment="CENTER" prefHeight="140.0" prefWidth="700.0">
          <children>
-            <Button fx:id="b_back_in" mnemonicParsing="false" onAction="#backin" prefHeight="80.0" prefWidth="80.0" text="←" />
-            <Label alignment="CENTER" prefHeight="71.0" prefWidth="472.0" text="Розваги">
+            <Button fx:id="b_back_in" mnemonicParsing="false" onAction="#backin" prefHeight="80.0" prefWidth="80.0" text="←">
+               <effect>
+                  <InnerShadow />
+               </effect></Button>
+            <Label alignment="CENTER" prefHeight="71.0" prefWidth="472.0" text="Розваги" textFill="#33cc33">
                <font>
                   <Font name="Times New Roman Bold Italic" size="64.0" />
                </font>
             </Label>
-            <Button fx:id="b_close" mnemonicParsing="false" onAction="#close" prefHeight="80.0" prefWidth="80.0" text="卐" />
+            <Button fx:id="b_close" mnemonicParsing="false" onAction="#close" prefHeight="80.0" prefWidth="80.0" text="卐">
+               <effect>
+                  <InnerShadow />
+               </effect></Button>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="b1" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Активні" />
-            <Button fx:id="b2" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Сімейні">
+            <Button fx:id="b1" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Активні" textFill="#33cc33">
+               <effect>
+                  <InnerShadow />
+               </effect></Button>
+            <Button fx:id="b2" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Сімейні" textFill="#33cc33">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
+               <effect>
+                  <InnerShadow />
+               </effect>
             </Button>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="b3" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Релакс" />
-            <Button fx:id="b4" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Клуби/бари">
+            <Button fx:id="b3" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Релакс" textFill="#33cc33">
+               <effect>
+                  <InnerShadow />
+               </effect></Button>
+            <Button fx:id="b4" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Клуби/бари" textFill="#33cc33">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
+               <effect>
+                  <InnerShadow />
+               </effect>
             </Button>
          </children>
       </HBox>

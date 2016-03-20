@@ -1,13 +1,13 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
 .root {
-	-fx-background-color: #F6EBD8;
+	-fx-background-color: #fff;
 	-fx-background-image: url("img/back.png");
 }
 
 .button{
-	-fx-background-color: #F6EBD8;
-	-fx-background-image: url("img/but.png");
+	-fx-background-color: #fff;
+	
 	-fx-font-size: 28px ;
 	-fx-font-style: italic;
 	-fx-font-weight: bold;
@@ -15,7 +15,7 @@
 }
 
 .button:hover {
-	-fx-background-color: #D9B997;
+	-fx-background-color: #defada;
 	-fx-cursor: hand;
 }
 

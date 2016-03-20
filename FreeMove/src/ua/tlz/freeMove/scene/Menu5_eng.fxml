@@ -16,7 +16,7 @@
                <effect>
                   <InnerShadow />
                </effect></Button>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="71.0" prefWidth="472.0" text="Транспорт" textAlignment="CENTER" textFill="#33cc33" textOverrun="CENTER_ELLIPSIS">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="71.0" prefWidth="472.0" text="Transport" textAlignment="CENTER" textFill="#33cc33" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="Times New Roman Bold Italic" size="64.0" />
                </font>
@@ -29,11 +29,11 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="b1" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Залізниця" textFill="#33cc33">
+            <Button fx:id="b1" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Railway" textFill="#33cc33">
                <effect>
                   <InnerShadow />
                </effect></Button>
-            <Button fx:id="b2" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Автобуси" textFill="#33cc33">
+            <Button fx:id="b2" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Bus" textFill="#33cc33">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -45,11 +45,11 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="b3" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Літаки" textFill="#33cc33">
+            <Button fx:id="b3" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Fly" textFill="#33cc33">
                <effect>
                   <InnerShadow />
                </effect></Button>
-            <Button fx:id="b4" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Таксі" textFill="#33cc33">
+            <Button fx:id="b4" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Taxi" textFill="#33cc33">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>

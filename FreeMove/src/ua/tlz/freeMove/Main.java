@@ -17,7 +17,6 @@ public class Main extends Application {
 	CheckBox cb_eng = new CheckBox();
 	@FXML
 	CheckBox cb_ua = new CheckBox();
-//	
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException {

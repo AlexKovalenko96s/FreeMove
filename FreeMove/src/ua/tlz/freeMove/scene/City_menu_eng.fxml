@@ -13,9 +13,9 @@
    <children>
       <HBox fx:id="title" alignment="CENTER" prefHeight="140.0" prefWidth="700.0">
          <children>
-            <Label alignment="CENTER" prefHeight="79.0" prefWidth="340.0" text="FreeMove" textFill="#33cc33">
+            <Label fx:id="l" alignment="CENTER" prefHeight="79.0" prefWidth="340.0" text="FreeMove" textFill="#33cc33">
                <font>
-                  <Font name="Times New Roman Bold Italic" size="71.0" />
+                  <Font name="AR HERMANN" size="71.0" />
                </font>
             </Label>
             <CheckBox fx:id="cb_ua" mnemonicParsing="false" onAction="#check_ua" text="UA">

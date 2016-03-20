@@ -1,5 +1,7 @@
 package ua.tlz.freeMove.scene;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -9,10 +11,14 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class MainMenu {
 
+	@FXML
+	Label l;
 	@FXML
 	Button b_back;
 	@FXML
@@ -36,7 +42,7 @@ public class MainMenu {
 	
 	@FXML
 	private void check_ua(ActionEvent check_ua) throws IOException{
-		
+	
 		Scene check_ua_scene = new Scene(FXMLLoader.load(getClass().getResource("City_menu.fxml")));
 		check_ua_scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		Stage app_stage = (Stage) ((Node) check_ua.getSource()).getScene().getWindow();

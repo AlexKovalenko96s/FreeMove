@@ -64,9 +64,11 @@ public class MainRozv {
 	@FXML
 	private void close(ActionEvent event_close){
 		if(MainMenu.ua == true){
+			MainMenu.delstart();
 			System.exit(0);
 		}
 		if(MainMenu.eng == true){
+			MainMenu.delstart();
 			System.exit(0);
 		}
 	}

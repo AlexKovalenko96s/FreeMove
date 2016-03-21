@@ -1,7 +1,5 @@
 package ua.tlz.freeMove.scene;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -14,6 +12,9 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import ua.tlz.freeMove.regedit.AddReg;
+import ua.tlz.freeMove.regedit.DelReg;
+import ua.tlz.freeMove.regedit.Error;
 
 public class MainMenu {
 
@@ -37,12 +38,16 @@ public class MainMenu {
 	CheckBox cb_eng = new CheckBox();
 	@FXML
 	CheckBox cb_ua = new CheckBox();
-	static boolean ua = false;
-	static boolean eng = false;
+	public static boolean ua = false;
+	public static boolean eng = false;
+	static AddReg ar = new AddReg();
+	static DelReg dr = new DelReg();
+	static Error er = new Error();
 	
 	@FXML
 	private void check_ua(ActionEvent check_ua) throws IOException{
-	
+		delOdessa();
+		delengl();
 		Scene check_ua_scene = new Scene(FXMLLoader.load(getClass().getResource("City_menu.fxml")));
 		check_ua_scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		Stage app_stage = (Stage) ((Node) check_ua.getSource()).getScene().getWindow();
@@ -51,6 +56,8 @@ public class MainMenu {
 	}
 	@FXML
 	private void check_eng(ActionEvent check_eng) throws IOException{
+		delOdessa();
+		deluaa();
 		Scene check_eng_scene = new Scene(FXMLLoader.load(getClass().getResource("City_menu_eng.fxml")));
 		check_eng_scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		Stage app_stage = (Stage) ((Node) check_eng.getSource()).getScene().getWindow();
@@ -162,6 +169,8 @@ public class MainMenu {
 			mainmenu_scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			Stage app_stage = (Stage) ((Node) event_odesa.getSource()).getScene().getWindow();
 			ua = true;
+			odessa();
+			uaa();
 			app_stage.setScene(mainmenu_scene);
 			app_stage.show();
 		}
@@ -170,6 +179,8 @@ public class MainMenu {
 			mainmenu_scene_eng.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			Stage app_stage = (Stage) ((Node) event_odesa.getSource()).getScene().getWindow();
 			eng = true;
+			odessa();
+			engl();
 			app_stage.setScene(mainmenu_scene_eng);
 			app_stage.show();
 		}
@@ -183,6 +194,8 @@ public class MainMenu {
 			mainmenu_scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			Stage app_stage = (Stage) ((Node) event_back_on_city.getSource()).getScene().getWindow();
 			ua = false;
+			delOdessa();
+			deluaa();
 			app_stage.setScene(mainmenu_scene);
 			app_stage.show();
 		}
@@ -191,6 +204,8 @@ public class MainMenu {
 			mainmenu_scene_eng.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			Stage app_stage = (Stage) ((Node) event_back_on_city.getSource()).getScene().getWindow();
 			eng = false;
+			delOdessa();
+			delengl();
 			app_stage.setScene(mainmenu_scene_eng);
 			app_stage.show();
 		}
@@ -198,7 +213,7 @@ public class MainMenu {
 	
 	@FXML
 	private void close(ActionEvent event_close){
-		
+		delstart();
 		System.exit(0);
 	}
 	
@@ -219,5 +234,50 @@ public class MainMenu {
 			app_stage.setScene(mainmenu_scene_eng);
 			app_stage.show();
 		}
+	}
+	
+	public static void odessa() {
+		String addres = "HKEY_CURRENT_USER\\Software\\FreeMove";
+		String name = "odessa";
+		String value = "now";
+		ar.run(addres, name, value);
+	}
+	
+	public static void engl() {
+		String addres = "HKEY_CURRENT_USER\\Software\\FreeMove";
+		String name = "engl";
+		String value = "now";
+		ar.run(addres, name, value);
+	}
+	
+	public static void uaa() {
+		String addres = "HKEY_CURRENT_USER\\Software\\FreeMove";
+		String name = "uaa";
+		String value = "now";
+		ar.run(addres, name, value);
+	}
+	
+	public static void delOdessa() {
+		String addres = "HKEY_CURRENT_USER\\Software\\FreeMove";
+		String name = "odessa";
+		dr.run(addres, name);
+	}
+	
+	public static void delengl() {
+		String addres = "HKEY_CURRENT_USER\\Software\\FreeMove";
+		String name = "engl";
+		dr.run(addres, name);
+	}
+	
+	public static void deluaa() {
+		String addres = "HKEY_CURRENT_USER\\Software\\FreeMove";
+		String name = "uaa";
+		dr.run(addres, name);
+	}
+	
+	public static void delstart() {
+		String addres = "HKEY_CURRENT_USER\\Software\\FreeMove";
+		String name = "START";
+		dr.run(addres, name);
 	}
 }

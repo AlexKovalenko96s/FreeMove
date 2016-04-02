@@ -75,7 +75,7 @@ public class Main extends Application {
 			}
 		}
 		else{
-			JOptionPane.showMessageDialog(null, "Uncorected start!");
+			JOptionPane.showMessageDialog(null, "Program allready start!");
 			delstart();
 		}
 	}

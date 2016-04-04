@@ -21,7 +21,7 @@
                   <Font name="Times New Roman Bold Italic" size="64.0" />
                </font>
             </Label>
-            <Button fx:id="b_close" mnemonicParsing="false" onAction="#close" prefHeight="80.0" prefWidth="80.0" text="卐">
+            <Button fx:id="b_close" mnemonicParsing="false" onAction="#close" prefHeight="80.0" prefWidth="80.0">
                <effect>
                   <InnerShadow />
                </effect></Button>

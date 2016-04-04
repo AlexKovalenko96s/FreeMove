@@ -5,6 +5,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -28,7 +29,7 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </CheckBox>
-            <Button fx:id="b_close" mnemonicParsing="false" onAction="#close" prefHeight="80.0" prefWidth="80.0" text="卐">
+            <Button fx:id="b_close" mnemonicParsing="false" onAction="#close" prefHeight="80.0" prefWidth="80.0">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -62,5 +63,11 @@
                </effect></Button>
          </children>
       </HBox>
+      <AnchorPane prefHeight="60.0" prefWidth="700.0">
+         <children>
+            <Button layoutX="596.0" layoutY="18.0" mnemonicParsing="false" onAction="#login" text="Login" />
+            <Label fx:id="user_name" layoutX="468.0" layoutY="22.0" prefHeight="17.0" prefWidth="111.0" />
+         </children>
+      </AnchorPane>
    </children>
 </VBox>

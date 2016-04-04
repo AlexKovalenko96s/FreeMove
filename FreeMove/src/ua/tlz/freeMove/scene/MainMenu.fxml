@@ -14,7 +14,7 @@
                <effect>
                   <InnerShadow />
                </effect></Button>
-            <Button fx:id="b_close" mnemonicParsing="false" onAction="#close" prefHeight="80.0" prefWidth="80.0" text="卐">
+            <Button fx:id="b_close" mnemonicParsing="false" onAction="#close" prefHeight="80.0" prefWidth="80.0">
                <HBox.margin>
                   <Insets left="472.0" />
                </HBox.margin>

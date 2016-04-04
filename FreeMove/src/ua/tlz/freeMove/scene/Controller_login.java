@@ -22,7 +22,8 @@ public class Controller_login {
 	@FXML TextField textLOGIN;
 	@FXML PasswordField textPASSWORD;
 	@FXML Label uncorrect;
-	
+	public static boolean ua = true;
+	public static boolean eng = false;
 	public static String login;
 	
 	public void log_in(ActionEvent e) throws SQLException, IOException{
@@ -45,6 +46,8 @@ public class Controller_login {
 				Scene mainmenu_eng_scene = new Scene(FXMLLoader.load(getClass().getResource("MainMenu_eng.fxml")));
 				mainmenu_eng_scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+				ua = false;
+				eng = true;
 				app_stage.setScene(mainmenu_eng_scene);
 				app_stage.show();
 
@@ -54,6 +57,8 @@ public class Controller_login {
 				Scene mainmenu_scene = new Scene(FXMLLoader.load(getClass().getResource("MainMenu.fxml")));
 				mainmenu_scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+				eng = false;
+				ua = true;
 				app_stage.setScene(mainmenu_scene);
 				app_stage.show();
 			}
@@ -62,6 +67,8 @@ public class Controller_login {
 				Scene city_menu_scene = new Scene(FXMLLoader.load(getClass().getResource("City_menu.fxml")));
 				city_menu_scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+				eng = false;
+				ua = true;
 				app_stage.setScene(city_menu_scene);
 				app_stage.show();
 			}
@@ -70,6 +77,8 @@ public class Controller_login {
 				Scene city_menu_eng_scene = new Scene(FXMLLoader.load(getClass().getResource("City_menu_eng.fxml")));
 				city_menu_eng_scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+				ua = false;
+				eng = true;
 				app_stage.setScene(city_menu_eng_scene);
 				app_stage.show();		
 			}			

@@ -200,7 +200,6 @@ public class MainMenu implements Initializable{
 			myStmt.executeUpdate();
 			app_stage_ua.setScene(mainmenu_scene);
 			app_stage_ua.show();
-			System.out.println("1");
 		}
 		if((cb_eng.isSelected())){
 			Scene mainmenu_scene_eng = new Scene(FXMLLoader.load(getClass().getResource("MainMenu_eng.fxml")));
@@ -217,7 +216,6 @@ public class MainMenu implements Initializable{
 			myStmt.executeUpdate();
 			app_stage_eng.setScene(mainmenu_scene_eng);
 			app_stage_eng.show();
-			System.out.println("2");
 		}
 	}
 	
@@ -289,7 +287,7 @@ public class MainMenu implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		Image imageDecline = new Image(getClass().getResourceAsStream("Close.png"));
+		Image imageDecline = new Image(getClass().getResourceAsStream("img/Close.png"));
 		b_close.setGraphic(new ImageView(imageDecline));
 	}
 }

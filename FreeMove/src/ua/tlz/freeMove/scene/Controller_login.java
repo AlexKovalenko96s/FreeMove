@@ -63,7 +63,7 @@ public class Controller_login {
 				app_stage.show();
 			}
 			
-			if(User_experience.ua == true && User_experience.no_city == true ){
+			if((User_experience.ua == true || User_experience.no_language == true) && User_experience.no_city == true ){
 				Scene city_menu_scene = new Scene(FXMLLoader.load(getClass().getResource("City_menu.fxml")));
 				city_menu_scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();

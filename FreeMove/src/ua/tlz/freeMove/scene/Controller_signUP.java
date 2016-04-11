@@ -119,7 +119,7 @@ public class Controller_signUP {
 							myStmt.executeUpdate();
 
 							try {
-								if(textNAME.getText().equals("")){
+								if(textNAME.getText().equals("")!=true){
 									java.sql.PreparedStatement S_name = myConn
 											.prepareStatement("update users set first_name=? where user_name=?");
 									S_name.setString(1, textNAME.getText());
@@ -130,7 +130,7 @@ public class Controller_signUP {
 							}
 
 							try {
-								if(textAGE.getText().equals("")){
+								if(textAGE.getText().equals("")!=true){
 									java.sql.PreparedStatement S_age = myConn
 											.prepareStatement("update users set age=? where user_name=?");
 									S_age.setString(1, textAGE.getText());

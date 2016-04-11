@@ -25,6 +25,22 @@
 	-fx-font-size: 34px ;
 }
 
+#photo_list {
+	-fx-background-color: #fff;
+	-fx-font-size: 20px ;
+	-fx-font-style: italic;
+	-fx-font-weight: bold;
+	-fx-font-family: "Times New Roman", Georgia, Serif;
+}
+
+#like_list {
+	-fx-background-color: #fff;
+	-fx-font-size: 20px ;
+	-fx-font-style: italic;
+	-fx-font-weight: bold;
+	-fx-font-family: "Times New Roman", Georgia, Serif;
+}
+
 #b_close:hover {
 	-fx-background-color: red;
 	

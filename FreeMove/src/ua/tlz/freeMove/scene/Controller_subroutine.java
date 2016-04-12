@@ -2,6 +2,7 @@ package ua.tlz.freeMove.scene;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -19,12 +20,33 @@ public class Controller_subroutine implements Initializable{
 	
 	@FXML Button b_close;
 	
-	public void must_see(ActionEvent e) throws IOException{
-		Scene must_see_ua = new Scene(FXMLLoader.load(getClass().getResource("must_see/list.fxml")));
-		must_see_ua.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-		Stage app_stage_must_see_ua = (Stage) ((Node) e.getSource()).getScene().getWindow();
-		app_stage_must_see_ua.setScene(must_see_ua);
-		app_stage_must_see_ua.show();
+	public void must_see(ActionEvent e) throws IOException, SQLException{
+
+		
+//		if("null".equals(Controller_login.login) && "null".equals(Controller_login.password)){
+//			Scene must_see_ua = new Scene(FXMLLoader.load(getClass().getResource("must_see/list.fxml")));
+//			must_see_ua.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+//			Stage app_stage_must_see_ua = (Stage) ((Node) e.getSource()).getScene().getWindow();
+//			app_stage_must_see_ua.setScene(must_see_ua);
+//			app_stage_must_see_ua.show();
+//		}
+//		
+		
+		if("Admin".equals(Controller_login.login) && "admin".equals(Controller_login.password)){
+			Scene must_see_ua = new Scene(FXMLLoader.load(getClass().getResource("must_see_ADMIN/Main.fxml")));
+			must_see_ua.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Stage app_stage_must_see_ua = (Stage) ((Node) e.getSource()).getScene().getWindow();
+			app_stage_must_see_ua.setScene(must_see_ua);
+			app_stage_must_see_ua.show();
+		}
+		
+		else {
+			Scene must_see_ua = new Scene(FXMLLoader.load(getClass().getResource("must_see/list.fxml")));
+			must_see_ua.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Stage app_stage_must_see_ua = (Stage) ((Node) e.getSource()).getScene().getWindow();
+			app_stage_must_see_ua.setScene(must_see_ua);
+			app_stage_must_see_ua.show();
+		}
 	}
 	
 	@FXML
@@ -34,7 +56,7 @@ public class Controller_subroutine implements Initializable{
 	
 	@FXML
 	private void back(ActionEvent event_back) throws IOException{
-		Scene menu1_ua_scene = new Scene(FXMLLoader.load(getClass().getResource("Menu1.fxml")));
+		Scene menu1_ua_scene = new Scene(FXMLLoader.load(getClass().getResource("MainMenu.fxml")));
 		menu1_ua_scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		Stage menu1_ua_stage = (Stage) ((Node) event_back.getSource()).getScene().getWindow();
 		menu1_ua_stage.setScene(menu1_ua_scene);

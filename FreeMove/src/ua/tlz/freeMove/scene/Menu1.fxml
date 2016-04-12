@@ -12,7 +12,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="140.0" prefWidth="700.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="←">
+            <Button mnemonicParsing="false" onAction="#back" prefHeight="80.0" prefWidth="80.0" text="←">
                <effect>
                   <InnerShadow />
                </effect></Button>

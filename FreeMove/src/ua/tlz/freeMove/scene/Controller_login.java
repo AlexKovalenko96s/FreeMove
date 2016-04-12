@@ -25,12 +25,14 @@ public class Controller_login {
 	public static boolean ua = true;
 	public static boolean eng = false;
 	public static String login;
+	public static String password;
 	
 	public void log_in(ActionEvent e) throws SQLException, IOException{
 		
 	Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost/freemove", "root", "root");
 		
 		login = textLOGIN.getText();
+		password = textPASSWORD.getText();
 		java.sql.PreparedStatement myStmt;
 		myStmt = myConn.prepareStatement("select * from users where user_name = ? and password = ? ");
 		myStmt.setString(1, textLOGIN.getText());

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -35,11 +36,17 @@
          <font>
             <Font name="Times New Roman Bold" size="24.0" />
          </font>
+         <effect>
+            <InnerShadow />
+         </effect>
       </Button>
-      <Button layoutX="309.0" layoutY="336.0" mnemonicParsing="false" onAction="#sign_up" text="Sign up">
+      <Button layoutX="287.0" layoutY="338.0" mnemonicParsing="false" onAction="#sign_up" text="Sign up">
          <font>
             <Font name="Times New Roman Bold" size="18.0" />
          </font>
+         <effect>
+            <InnerShadow />
+         </effect>
       </Button>
    </children>
 </AnchorPane>

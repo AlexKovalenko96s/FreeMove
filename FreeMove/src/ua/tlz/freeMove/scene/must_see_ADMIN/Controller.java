@@ -7,28 +7,38 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class Controller {
+public class Controller implements Initializable{
 
+	@FXML
+	ComboBox<String> combobox_type;
+	@FXML 
+	ObservableList<String>type;
 	@FXML
 	TextField textID;
 	@FXML
@@ -49,6 +59,7 @@ public class Controller {
 	ImageView imv_map;
 	String s_pic;
 	String s_map;
+	static String t;
 
 	public void browse_PIC(ActionEvent e) {
 		JFileChooser fileChooser = new JFileChooser();
@@ -91,7 +102,7 @@ public class Controller {
 	public void add(ActionEvent e) throws SQLException, FileNotFoundException {
 		Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost/freemove", "root", "root");
 		java.sql.PreparedStatement myStmt = myConn
-				.prepareStatement("insert into must_see(id,name,address,number,web,rating,ratingK,pic,map) values (?,?,?,?,?,?,?,?,?)");
+				.prepareStatement("insert into must_see(id,name,address,number,web,rating,ratingK,pic,map,type) values (?,?,?,?,?,?,?,?,?,?)");
 		InputStream is_pic = new FileInputStream(new File(s_pic));
 		InputStream is_map = new FileInputStream(new File(s_map));
 		myStmt.setString(1, textID.getText());
@@ -103,6 +114,7 @@ public class Controller {
 		myStmt.setString(7, intRATINGK.getText());
 		myStmt.setBlob(8, is_pic);
 		myStmt.setBlob(9, is_map);
+		myStmt.setString(10, t);
 		myStmt.executeUpdate();
 		System.out.println("Complet!");
 	}
@@ -144,15 +156,15 @@ public class Controller {
 			/* 
 			 */
 			
-			
+			System.out.println("complet");
 		}
-		System.out.println("complet");
+		
 	}
 	
 	public void pic(ActionEvent e) throws IOException{
 		
 		Scene pic_scene = new Scene(FXMLLoader.load(getClass().getResource("PIC.fxml")));
-		pic_scene.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
+		//pic_scene.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
 		Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 		app_stage.setScene(pic_scene);
 		app_stage.show();
@@ -165,5 +177,16 @@ public class Controller {
 		Stage Menu1_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 		Menu1_stage.setScene(Menu1_scene);
 		Menu1_stage.show();
+	}
+
+	public void add_type(ActionEvent e){
+		t = combobox_type.getEditor().getText();
+	}
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		type = FXCollections.observableArrayList(
+				"must_see","colorful","themed");
+		combobox_type.setItems(type);
 	}
 }

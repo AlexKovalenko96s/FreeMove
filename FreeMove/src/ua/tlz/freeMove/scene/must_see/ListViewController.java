@@ -24,6 +24,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import ua.tlz.freeMove.scene.Controller_subroutine;
 
 public class ListViewController implements Initializable {
 
@@ -71,12 +72,17 @@ public class ListViewController implements Initializable {
 		
 		Image imageDecline_close = new Image(getClass().getResourceAsStream("../img/Close.png"));
 		b_close.setGraphic(new ImageView(imageDecline_close));
+		
 		try {
 			Image imageDecline = new Image(getClass().getResourceAsStream("../img/photo.png"));
 			photo_list.setGraphic(new ImageView(imageDecline));
+			
 			Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/freemove", "root", "root");
-			Statement myStmt = myConn.createStatement();
-			ResultSet myRs = myStmt.executeQuery("select * from must_see");
+			ResultSet myRs = null;
+			java.sql.PreparedStatement myStmt;
+			myStmt = myConn.prepareStatement("select * from must_see where type =?");	
+			myStmt.setString(1, Controller_subroutine.type_list);
+			myRs = myStmt.executeQuery();
 			listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 			
 			while (myRs.next()) {

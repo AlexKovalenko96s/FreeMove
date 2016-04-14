@@ -19,6 +19,10 @@ import javafx.stage.Stage;
 public class Controller_subroutine implements Initializable{
 	
 	@FXML Button b_close;
+	@FXML Button must_see;
+	@FXML Button colorful;
+	@FXML Button themed;
+	public static String type_list;
 	
 	public void must_see(ActionEvent e) throws IOException, SQLException{
 
@@ -34,13 +38,22 @@ public class Controller_subroutine implements Initializable{
 		
 		if("Admin".equals(Controller_login.login) && "admin".equals(Controller_login.password)){
 			Scene must_see_ua = new Scene(FXMLLoader.load(getClass().getResource("must_see_ADMIN/Main.fxml")));
-			must_see_ua.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			//must_see_ua.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			Stage app_stage_must_see_ua = (Stage) ((Node) e.getSource()).getScene().getWindow();
 			app_stage_must_see_ua.setScene(must_see_ua);
 			app_stage_must_see_ua.show();
 		}
 		
 		else {
+			if(must_see.isHover()){
+				type_list = "must_see";
+			}
+			if(colorful.isHover()){
+				type_list = "colorful";
+			}
+			if(themed.isHover()){
+				type_list = "themed";
+			}
 			Scene must_see_ua = new Scene(FXMLLoader.load(getClass().getResource("must_see/list.fxml")));
 			must_see_ua.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			Stage app_stage_must_see_ua = (Stage) ((Node) e.getSource()).getScene().getWindow();

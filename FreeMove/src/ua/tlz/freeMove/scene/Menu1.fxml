@@ -31,11 +31,11 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#must_see" prefHeight="75.0" prefWidth="220.0" text="Обов'язкові" textFill="#33cc33">
+            <Button fx:id="must_see" mnemonicParsing="false" onAction="#must_see" prefHeight="75.0" prefWidth="220.0" text="Обов'язкові" textFill="#33cc33">
                <effect>
                   <InnerShadow />
                </effect></Button>
-            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Колоритні" textFill="#33cc33">
+            <Button fx:id="colorful" mnemonicParsing="false" onAction="#must_see" prefHeight="75.0" prefWidth="220.0" text="Колоритні" textFill="#33cc33">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -47,7 +47,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Тематичні" textFill="#33cc33">
+            <Button fx:id="themed" mnemonicParsing="false" onAction="#must_see" prefHeight="75.0" prefWidth="220.0" text="Тематичні" textFill="#33cc33">
                <effect>
                   <InnerShadow />
                </effect></Button>

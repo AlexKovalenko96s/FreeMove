@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.tlz.freeMove.scene.MainMenu">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.tlz.freeMove.scene.Controller_subroutine">
    <children>
-      <HBox fx:id="title" alignment="CENTER" prefHeight="140.0" prefWidth="700.0">
+      <HBox alignment="CENTER" prefHeight="140.0" prefWidth="700.0">
          <children>
             <Button fx:id="b_back" mnemonicParsing="false" onAction="#back" prefHeight="80.0" prefWidth="80.0" text="←">
                <effect>
@@ -29,7 +29,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="b1" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" text="Залізниця" textFill="#33cc33">
+            <Button mnemonicParsing="false" onAction="#booking" prefHeight="75.0" prefWidth="220.0" text="Залізниця" textFill="#33cc33">
                <effect>
                   <InnerShadow />
                </effect></Button>

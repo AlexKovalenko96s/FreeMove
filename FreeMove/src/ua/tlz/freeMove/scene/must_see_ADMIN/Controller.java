@@ -32,6 +32,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import ua.tlz.freeMove.scene.Controller_subroutine;
 
 public class Controller implements Initializable{
 
@@ -73,7 +74,8 @@ public class Controller implements Initializable{
 			System.out.println(path);
 			String ss = path.substring(path.indexOf("&"));
 			s_pic = path;
-			imv_pic.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/res/" + ss)));
+			System.out.println(ss);
+			imv_pic.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("res/" + ss)));
 
 		} else if (result == JFileChooser.CANCEL_OPTION) {
 			System.out.println("No Data");
@@ -92,7 +94,7 @@ public class Controller implements Initializable{
 			System.out.println(path);
 			String ss = path.substring(path.indexOf("&"));
 			s_map = path;
-			imv_map.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/res/" + ss)));
+			imv_map.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("res/" + ss)));
 
 		} else if (result == JFileChooser.CANCEL_OPTION) {
 			System.out.println("No Data");
@@ -100,21 +102,21 @@ public class Controller implements Initializable{
 	}
 
 	public void add(ActionEvent e) throws SQLException, FileNotFoundException {
+		
+		
 		Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost/freemove", "root", "root");
 		java.sql.PreparedStatement myStmt = myConn
-				.prepareStatement("insert into must_see(id,name,address,number,web,rating,ratingK,pic,map,type) values (?,?,?,?,?,?,?,?,?,?)");
+				.prepareStatement("insert into must_see(name,address,number,web,rating,pic,map,type) values (?,?,?,?,?,?,?,?)");
 		InputStream is_pic = new FileInputStream(new File(s_pic));
 		InputStream is_map = new FileInputStream(new File(s_map));
-		myStmt.setString(1, textID.getText());
-		myStmt.setString(2, textNAME.getText());
-		myStmt.setString(3, textADDRESS.getText());
-		myStmt.setString(4, textNUMBER.getText());
-		myStmt.setString(5, textWEB.getText());
-		myStmt.setString(6, intRATING.getText());
-		myStmt.setString(7, intRATINGK.getText());
-		myStmt.setBlob(8, is_pic);
-		myStmt.setBlob(9, is_map);
-		myStmt.setString(10, t);
+		myStmt.setString(1, textNAME.getText());
+		myStmt.setString(2, textADDRESS.getText());
+		myStmt.setString(3, textNUMBER.getText());
+		myStmt.setString(4, textWEB.getText());
+		myStmt.setString(5, intRATING.getText());
+		myStmt.setBlob(6, is_pic);
+		myStmt.setBlob(7, is_map);
+		myStmt.setString(8, combobox_type.getEditor().getText());
 		myStmt.executeUpdate();
 		System.out.println("Complet!");
 	}
@@ -133,9 +135,8 @@ public class Controller implements Initializable{
 		byte[] imgData_map = null;
 		
 		while (myRs.next()) {
-			textID.setText(myRs.getString("id"));
 			textNAME.setText(myRs.getString("name"));
-			textADDRESS.setText(myRs.getString("addres"));
+			textADDRESS.setText(myRs.getString("address"));
 			textNUMBER.setText(myRs.getString("number"));
 			textWEB.setText(myRs.getString("web"));
 			img_pic = myRs.getBlob("pic");
@@ -178,13 +179,24 @@ public class Controller implements Initializable{
 		Menu1_stage.setScene(Menu1_scene);
 		Menu1_stage.show();
 	}
-
-	public void add_type(ActionEvent e){
-		t = combobox_type.getEditor().getText();
-	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		try{
+			if("must_see".contains(Controller_subroutine.type_list)){
+				combobox_type.getEditor().setText("must_see");
+			}
+		}catch(Exception ex){}
+		try{
+			if("colorful".contains(Controller_subroutine.type_list)){
+				combobox_type.getEditor().setText("colorful");
+			}
+		}catch(Exception ex){}
+		try{
+			if("themed".contains(Controller_subroutine.type_list)){
+				combobox_type.getEditor().setText("themed");
+			}
+		}catch(Exception ex){}
 		type = FXCollections.observableArrayList(
 				"must_see","colorful","themed");
 		combobox_type.setItems(type);

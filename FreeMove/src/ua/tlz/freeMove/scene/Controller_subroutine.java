@@ -37,6 +37,15 @@ public class Controller_subroutine implements Initializable{
 //		
 		
 		if("Admin".equals(Controller_login.login) && "admin".equals(Controller_login.password)){
+			if(must_see.isHover()){
+				type_list = "must_see";
+			}
+			if(colorful.isHover()){
+				type_list = "colorful";
+			}
+			if(themed.isHover()){
+				type_list = "themed";
+			}
 			Scene must_see_ua = new Scene(FXMLLoader.load(getClass().getResource("must_see_ADMIN/Main.fxml")));
 			//must_see_ua.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			Stage app_stage_must_see_ua = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -62,6 +71,31 @@ public class Controller_subroutine implements Initializable{
 		}
 	}
 	
+	public void booking(ActionEvent e) throws IOException{
+		if("Admin".equals(Controller_login.login) && "admin".equals(Controller_login.password)){
+			Scene booking_ua = new Scene(FXMLLoader.load(getClass().getResource("booking_ADMIN/Main.fxml")));
+			booking_ua.getStylesheets().add(getClass().getResource("./application.css").toExternalForm());
+			Stage app_stage_booking_ua = (Stage) ((Node) e.getSource()).getScene().getWindow();
+			app_stage_booking_ua.setScene(booking_ua);
+			app_stage_booking_ua.show();
+		}
+		else {
+			Scene booking_ua = new Scene(FXMLLoader.load(getClass().getResource("booking/main_booking.fxml")));
+			booking_ua.getStylesheets().add(getClass().getResource("./application.css").toExternalForm());
+			Stage app_stage_booking_ua = (Stage) ((Node) e.getSource()).getScene().getWindow();
+			app_stage_booking_ua.setScene(booking_ua);
+			app_stage_booking_ua.show();
+		}
+	}
+	
+	public void active(ActionEvent e) throws IOException{
+		Scene active_ua = new Scene(FXMLLoader.load(getClass().getResource("free_time/Menu_Actives.fxml")));
+		active_ua.getStylesheets().add(getClass().getResource("./application.css").toExternalForm());
+		Stage app_stage_active_ua = (Stage) ((Node) e.getSource()).getScene().getWindow();
+		app_stage_active_ua.setScene(active_ua);
+		app_stage_active_ua.show();
+	}
+	
 	@FXML
 	private void close(ActionEvent event_close){
 		System.exit(0);
@@ -80,5 +114,23 @@ public class Controller_subroutine implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		Image imageDecline_close = new Image(getClass().getResourceAsStream("img/Close.png"));
 		b_close.setGraphic(new ImageView(imageDecline_close));
+	}
+	
+	@FXML
+	private void back_rozv(ActionEvent event_back) throws IOException{
+		if(Controller_login.ua == true){
+			Scene mainmenu_scene = new Scene(FXMLLoader.load(getClass().getResource("Menu4.fxml")));
+			mainmenu_scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Stage app_stage = (Stage) ((Node) event_back.getSource()).getScene().getWindow();
+			app_stage.setScene(mainmenu_scene);
+			app_stage.show();
+		}
+		if(Controller_login.eng == true){
+			Scene mainmenu_scene_eng = new Scene(FXMLLoader.load(getClass().getResource("Menu4_eng.fxml")));
+			mainmenu_scene_eng.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Stage app_stage = (Stage) ((Node) event_back.getSource()).getScene().getWindow();
+			app_stage.setScene(mainmenu_scene_eng);
+			app_stage.show();
+		}
 	}
 }

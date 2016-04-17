@@ -22,6 +22,10 @@ public class Controller_subroutine implements Initializable{
 	@FXML Button must_see;
 	@FXML Button colorful;
 	@FXML Button themed;
+	@FXML Button fast_food;
+	@FXML Button cafe;
+	@FXML Button restaurants;
+	@FXML Button bars;
 	public static String type_list;
 	
 	public void must_see(ActionEvent e) throws IOException, SQLException{
@@ -71,7 +75,50 @@ public class Controller_subroutine implements Initializable{
 		}
 	}
 	
-	public void booking(ActionEvent e) throws IOException{
+	public void food(ActionEvent e) throws IOException, SQLException{
+	
+		if("Admin".equals(Controller_login.login) && "admin".equals(Controller_login.password)){
+			if(fast_food.isHover()){
+				type_list = "fast_food";
+			}
+			if(cafe.isHover()){
+				type_list = "cafe";
+			}
+			if(restaurants.isHover()){
+				type_list = "restaurants";
+			}
+			if(bars.isHover()){
+				type_list = "bars";
+			}
+			Scene food_ua = new Scene(FXMLLoader.load(getClass().getResource("food_ADMIN/Main.fxml")));
+			food_ua.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Stage app_stage_food_ua = (Stage) ((Node) e.getSource()).getScene().getWindow();
+			app_stage_food_ua.setScene(food_ua);
+			app_stage_food_ua.show();
+		}
+		
+		else {
+			if(fast_food.isHover()){
+				type_list = "fast_food";
+			}
+			if(cafe.isHover()){
+				type_list = "cafe";
+			}
+			if(restaurants.isHover()){
+				type_list = "restaurants";
+			}
+			if(bars.isHover()){
+				type_list = "bars";
+			}
+			Scene food_ua = new Scene(FXMLLoader.load(getClass().getResource("food/list.fxml")));
+			food_ua.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Stage app_stage_food_ua = (Stage) ((Node) e.getSource()).getScene().getWindow();
+			app_stage_food_ua.setScene(food_ua);
+			app_stage_food_ua.show();
+		}
+	}
+	
+	public void booking_train(ActionEvent e) throws IOException{
 		if("Admin".equals(Controller_login.login) && "admin".equals(Controller_login.password)){
 			Scene booking_ua = new Scene(FXMLLoader.load(getClass().getResource("booking_ADMIN/Main.fxml")));
 			booking_ua.getStylesheets().add(getClass().getResource("./application.css").toExternalForm());
@@ -87,6 +134,8 @@ public class Controller_subroutine implements Initializable{
 			app_stage_booking_ua.show();
 		}
 	}
+	
+	
 	
 	public void active(ActionEvent e) throws IOException{
 		Scene active_ua = new Scene(FXMLLoader.load(getClass().getResource("free_time/Menu_Actives.fxml")));

@@ -29,7 +29,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#booking" prefHeight="75.0" prefWidth="220.0" text="Залізниця" textFill="#33cc33">
+            <Button mnemonicParsing="false" onAction="#booking_train" prefHeight="75.0" prefWidth="220.0" text="Залізниця" textFill="#33cc33">
                <effect>
                   <InnerShadow />
                </effect></Button>

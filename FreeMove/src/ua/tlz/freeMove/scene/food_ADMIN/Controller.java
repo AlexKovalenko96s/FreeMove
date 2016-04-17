@@ -1,4 +1,4 @@
-package ua.tlz.freeMove.scene.must_see_ADMIN;
+package ua.tlz.freeMove.scene.food_ADMIN;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -53,32 +53,9 @@ public class Controller implements Initializable{
 	@FXML
 	TextField intRATINGK;
 	@FXML
-	ImageView imv_pic;
-	@FXML
 	ImageView imv_map;
-	String s_pic;
 	String s_map;
 	static String t;
-
-	public void browse_PIC(ActionEvent e) {
-		JFileChooser fileChooser = new JFileChooser();
-		fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("*.IMAGE", "jpg", "gif", "png");
-		fileChooser.addChoosableFileFilter(filter);
-		int result = fileChooser.showSaveDialog(null);
-		if (result == JFileChooser.APPROVE_OPTION) {
-			File selectedFile = fileChooser.getSelectedFile();
-			String path = selectedFile.getAbsolutePath();
-			System.out.println(path);
-			String ss = path.substring(path.indexOf("&"));
-			s_pic = path;
-			System.out.println(ss);
-			imv_pic.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("res/" + ss)));
-
-		} else if (result == JFileChooser.CANCEL_OPTION) {
-			System.out.println("No Data");
-		}
-	}
 	
 	public void browse_MAP(ActionEvent e) {
 		JFileChooser fileChooser = new JFileChooser();
@@ -101,21 +78,18 @@ public class Controller implements Initializable{
 
 	public void add(ActionEvent e) throws SQLException, FileNotFoundException {
 		
-		
 		Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost/freemove", "root", "root");
 		java.sql.PreparedStatement myStmt = myConn
-				.prepareStatement("insert into must_see(name,address,number,web,rating,pic,map,type,likes_user) values (?,?,?,?,?,?,?,?,?)");
-		InputStream is_pic = new FileInputStream(new File(s_pic));
+				.prepareStatement("insert into food(name,address,number,web,rating,map,type,likes_user) values (?,?,?,?,?,?,?,?)");
 		InputStream is_map = new FileInputStream(new File(s_map));
 		myStmt.setString(1, textNAME.getText());
 		myStmt.setString(2, textADDRESS.getText());
 		myStmt.setString(3, textNUMBER.getText());
 		myStmt.setString(4, textWEB.getText());
 		myStmt.setString(5, intRATING.getText());
-		myStmt.setBlob(6, is_pic);
-		myStmt.setBlob(7, is_map);
-		myStmt.setString(8, combobox_type.getEditor().getText());
-		myStmt.setString(9, "& ");
+		myStmt.setBlob(6, is_map);
+		myStmt.setString(7, combobox_type.getEditor().getText());
+		myStmt.setString(8, "& ");
 		myStmt.executeUpdate();
 		System.out.println("Complet!");
 	}
@@ -128,9 +102,7 @@ public class Controller implements Initializable{
 		ps.setString(1, n);
 		ResultSet myRs = ps.executeQuery();
 
-		Blob img_pic;
 		Blob img_map;
-		byte[] imgData_pic = null;
 		byte[] imgData_map = null;
 		
 		while (myRs.next()) {
@@ -138,16 +110,14 @@ public class Controller implements Initializable{
 			textADDRESS.setText(myRs.getString("address"));
 			textNUMBER.setText(myRs.getString("number"));
 			textWEB.setText(myRs.getString("web"));
-			img_pic = myRs.getBlob("pic");
-			img_map = myRs.getBlob("map");
-			imgData_pic = img_pic.getBytes(1, (int) img_pic.length());
-			imgData_map = img_map.getBytes(1, (int) img_map.length());
-			
+			try{
+				img_map = myRs.getBlob("map");
+				imgData_map = img_map.getBytes(1, (int) img_map.length());
+			}catch(Exception ex){}
+				
 			//String dirName="C:\\Users\\KLUBnyaKprO\\Desktop";
 			
-			BufferedImage imag_pic =ImageIO.read(new ByteArrayInputStream(imgData_pic));
 			BufferedImage imag_map =ImageIO.read(new ByteArrayInputStream(imgData_map));
-			imv_pic.setImage(SwingFXUtils.toFXImage(imag_pic, null));
 			imv_map.setImage(SwingFXUtils.toFXImage(imag_map, null));
 			/*
 			 * извлекалка на рабочий стол
@@ -158,21 +128,10 @@ public class Controller implements Initializable{
 			
 			System.out.println("complet");
 		}
-		
 	}
 	
-	public void pic(ActionEvent e) throws IOException{
-		
-		Scene pic_scene = new Scene(FXMLLoader.load(getClass().getResource("PIC.fxml")));
-		//pic_scene.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
-		Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-		app_stage.setScene(pic_scene);
-		app_stage.show();
-	
-	}	
-	
 	public void back(ActionEvent e) throws IOException{
-		Scene Menu1_scene = new Scene(FXMLLoader.load(getClass().getResource("../Menu1.fxml")));
+		Scene Menu1_scene = new Scene(FXMLLoader.load(getClass().getResource("../Menu2.fxml")));
 		Menu1_scene.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
 		Stage Menu1_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 		Menu1_stage.setScene(Menu1_scene);
@@ -182,22 +141,27 @@ public class Controller implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try{
-			if("must_see".contains(Controller_subroutine.type_list)){
-				combobox_type.getEditor().setText("must_see");
+			if("fast_food".contains(Controller_subroutine.type_list)){
+				combobox_type.getEditor().setText("fast_food");
 			}
 		}catch(Exception ex){}
 		try{
-			if("colorful".contains(Controller_subroutine.type_list)){
-				combobox_type.getEditor().setText("colorful");
+			if("cafe".contains(Controller_subroutine.type_list)){
+				combobox_type.getEditor().setText("cafe");
 			}
 		}catch(Exception ex){}
 		try{
-			if("themed".contains(Controller_subroutine.type_list)){
-				combobox_type.getEditor().setText("themed");
+			if("restaurants".contains(Controller_subroutine.type_list)){
+				combobox_type.getEditor().setText("restaurants");
+			}
+		}catch(Exception ex){}
+		try{
+			if("bars".contains(Controller_subroutine.type_list)){
+				combobox_type.getEditor().setText("bars");
 			}
 		}catch(Exception ex){}
 		type = FXCollections.observableArrayList(
-				"must_see","colorful","themed");
+				"fast_food","cafe","restaurants","bars");
 		combobox_type.setItems(type);
 	}
 }

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -48,18 +49,35 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button layoutX="336.0" layoutY="133.0" mnemonicParsing="false" onAction="#browse_PIC" text="Browse PIC" />
-                  <Button layoutX="416.0" layoutY="167.0" mnemonicParsing="false" onAction="#add" prefHeight="25.0" prefWidth="83.0" text="ADD" />
+                  <Button layoutX="14.0" layoutY="124.0" mnemonicParsing="false" onAction="#browse_PIC" text="Browse PIC">
+                     <effect>
+                        <InnerShadow />
+                     </effect></Button>
+                  <Button layoutX="334.0" layoutY="180.0" mnemonicParsing="false" onAction="#add" prefHeight="51.0" prefWidth="150.0" text="ADD">
+                     <effect>
+                        <InnerShadow />
+                     </effect></Button>
                   <TextField fx:id="textNAME" layoutX="336.0" layoutY="98.0" promptText="name" />
-                  <Button layoutX="334.0" layoutY="167.0" mnemonicParsing="false" onAction="#see" prefHeight="25.0" prefWidth="75.0" text="See" />
+                  <Button layoutX="521.0" layoutY="180.0" mnemonicParsing="false" onAction="#see" prefHeight="51.0" prefWidth="149.0" text="See">
+                     <effect>
+                        <InnerShadow />
+                     </effect></Button>
                   <TextField fx:id="textADDRESS" layoutX="521.0" layoutY="54.0" promptText="address" />
                   <TextField fx:id="textWEB" layoutX="521.0" layoutY="141.0" promptText="web" />
                   <TextField fx:id="textNUMBER" layoutX="521.0" layoutY="98.0" promptText="number" />
-                  <Button layoutX="417.0" layoutY="133.0" mnemonicParsing="false" onAction="#browse_MAP" text="Browse MAP" />
-                  <TextField fx:id="intRATING" layoutX="521.0" layoutY="167.0" prefHeight="25.0" prefWidth="55.0" promptText="rating" />
-                  <TextField fx:id="intRATINGK" disable="true" layoutX="576.0" layoutY="167.0" prefHeight="25.0" prefWidth="55.0" promptText="ratingK" />
-                  <Button layoutX="631.0" layoutY="167.0" mnemonicParsing="false" onAction="#pic" prefHeight="25.0" prefWidth="39.0" text="PIC" />
-                  <Button layoutX="61.0" layoutY="46.0" mnemonicParsing="false" onAction="#back" prefHeight="67.0" prefWidth="149.0" text="Back" />
+                  <Button layoutX="14.0" layoutY="180.0" mnemonicParsing="false" onAction="#browse_MAP" text="Browse MAP">
+                     <effect>
+                        <InnerShadow />
+                     </effect></Button>
+                  <TextField fx:id="intRATING" layoutX="382.0" layoutY="137.0" prefHeight="25.0" prefWidth="55.0" promptText="rating" />
+                  <Button layoutX="214.0" layoutY="41.0" mnemonicParsing="false" onAction="#pic" prefHeight="51.0" prefWidth="92.0" text="PIC">
+                     <effect>
+                        <InnerShadow />
+                     </effect></Button>
+                  <Button layoutX="14.0" layoutY="33.0" mnemonicParsing="false" onAction="#back" prefHeight="67.0" prefWidth="149.0" text="Back">
+                     <effect>
+                        <InnerShadow />
+                     </effect></Button>
                   <ComboBox fx:id="combobox_type" editable="true" layoutX="334.0" layoutY="54.0" prefWidth="150.0" promptText="type" />
                </children>
             </AnchorPane>

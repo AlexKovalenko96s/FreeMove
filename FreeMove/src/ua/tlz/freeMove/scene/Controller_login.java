@@ -24,8 +24,9 @@ public class Controller_login {
 	@FXML Label uncorrect;
 	public static boolean ua = true;
 	public static boolean eng = false;
-	public static String login;
-	public static String password;
+	public static String login = "not_enter";
+	public static String password = "not_enter";
+	public static String id = "not_enter";
 	
 	public void log_in(ActionEvent e) throws SQLException, IOException{
 		
@@ -41,6 +42,7 @@ public class Controller_login {
 		
 		if(result.next()){
 			
+			id = result.getString("id");
 			User_experience.check();
 			
 			

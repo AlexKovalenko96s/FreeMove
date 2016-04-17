@@ -106,7 +106,7 @@ public class Controller implements Initializable{
 		
 		Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost/freemove", "root", "root");
 		java.sql.PreparedStatement myStmt = myConn
-				.prepareStatement("insert into must_see(name,address,number,web,rating,pic,map,type) values (?,?,?,?,?,?,?,?)");
+				.prepareStatement("insert into must_see(name,address,number,web,rating,pic,map,type,likes_user) values (?,?,?,?,?,?,?,?,?)");
 		InputStream is_pic = new FileInputStream(new File(s_pic));
 		InputStream is_map = new FileInputStream(new File(s_map));
 		myStmt.setString(1, textNAME.getText());
@@ -117,6 +117,7 @@ public class Controller implements Initializable{
 		myStmt.setBlob(6, is_pic);
 		myStmt.setBlob(7, is_map);
 		myStmt.setString(8, combobox_type.getEditor().getText());
+		myStmt.setString(9, "& ");
 		myStmt.executeUpdate();
 		System.out.println("Complet!");
 	}

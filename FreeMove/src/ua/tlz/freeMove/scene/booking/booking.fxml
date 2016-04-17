@@ -5,26 +5,26 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.tlz.freeMove.scene.booking.Booking">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.tlz.freeMove.scene.booking.Booking">
    <children>
-      <SplitPane dividerPositions="0.1934673366834171" orientation="VERTICAL">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+      <SplitPane dividerPositions="0.1934673366834171" layoutY="100.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="700.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
                   <ComboBox fx:id="vag_vubor" editable="true" focusTraversable="false" layoutX="37.0" layoutY="26.0" onAction="#vagonu" prefWidth="150.0" promptText="Вагон" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="331.0" prefWidth="598.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="331.0" prefWidth="598.0">
                <children>
                   <SplitPane dividerPositions="0.45569620253164556" layoutX="190.0" layoutY="58.0" orientation="VERTICAL" prefHeight="315.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
                               <ImageView fitHeight="140.0" fitWidth="596.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -50,11 +50,11 @@
                               <CheckBox fx:id="c11" layoutX="438.0" layoutY="51.0" mnemonicParsing="false" text="11" />
                            </children>
                         </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
                               <SplitPane dividerPositions="0.5909090909090909" layoutX="260.0" layoutY="-21.0" prefHeight="133.0" prefWidth="596.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                <items>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="131.0" prefWidth="335.0">
+                                 <items>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="131.0" prefWidth="335.0">
                                        <children>
                                           <Label layoutX="25.0" layoutY="97.0" text="Кількість:" />
                                           <Label layoutX="25.0" layoutY="123.0" text="Ціна:" />
@@ -62,22 +62,41 @@
                                           <Label fx:id="how_much" layoutX="94.0" layoutY="123.0" />
                                        </children>
                                     </AnchorPane>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                        <children>
-                                          <Button layoutX="75.0" layoutY="78.0" mnemonicParsing="false" onAction="#poschotat" text="Забронювати" />
-                                          <Button layoutX="131.0" layoutY="41.0" mnemonicParsing="false" onAction="#reset" text="Відмінити" />
-                                          <Button layoutX="23.0" layoutY="41.0" mnemonicParsing="false" onAction="#proverka" text="Полічити" />
+                                          <Button layoutX="36.0" layoutY="109.0" mnemonicParsing="false" onAction="#poschotat" text="Забронювати">
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect></Button>
+                                          <Button layoutX="53.0" layoutY="58.0" mnemonicParsing="false" onAction="#reset" text="Відмінити">
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect></Button>
+                                          <Button layoutX="58.0" layoutY="7.0" mnemonicParsing="false" onAction="#proverka" text="Полічити">
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect></Button>
                                        </children>
                                     </AnchorPane>
-                                </items>
+                                 </items>
                               </SplitPane>
                            </children>
                         </AnchorPane>
-                    </items>
+                     </items>
                   </SplitPane>
                </children>
             </AnchorPane>
-        </items>
+         </items>
       </SplitPane>
+      <Button fx:id="b_close" layoutX="597.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" prefHeight="80.0" prefWidth="80.0">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button layoutX="23.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="80.0" prefWidth="80.0" text="←">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
    </children>
-</VBox>
+</AnchorPane>

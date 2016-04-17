@@ -7,22 +7,25 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.tlz.freeMove.scene.booking.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.tlz.freeMove.scene.booking.Controller">
    <children>
-      <SplitPane dividerPositions="0.22613065326633167" orientation="VERTICAL" prefHeight="416.0" prefWidth="600.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="129.0" prefWidth="598.0">
+      <SplitPane dividerPositions="0.22613065326633167" layoutY="100.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="700.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="129.0" prefWidth="598.0">
                <children>
                   <ComboBox fx:id="city_out_search1" editable="true" layoutX="53.0" layoutY="12.0" prefWidth="150.0" promptText="Місто" />
                   <ComboBox fx:id="city_in_search1" editable="true" layoutX="53.0" layoutY="49.0" prefWidth="150.0" promptText="Місто" />
-                  <Button fx:id="search" layoutX="448.0" layoutY="-1.0" mnemonicParsing="false" onAction="#search" prefHeight="51.0" prefWidth="128.0" text="Пошук">
+                  <Button fx:id="search" layoutX="440.0" layoutY="19.0" mnemonicParsing="false" onAction="#search" prefHeight="51.0" prefWidth="128.0" text="Пошук">
                      <font>
                         <Font name="Times New Roman" size="12.0" />
                      </font>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
                   </Button>
                   <Label layoutX="7.0" layoutY="16.0" text="Звідки:">
                      <font>
@@ -41,42 +44,48 @@
                   </Label>
                   <Separator layoutX="219.0" layoutY="1.0" orientation="VERTICAL" prefHeight="96.0" prefWidth="1.0" />
                   <Separator layoutX="434.0" layoutY="-4.0" orientation="VERTICAL" prefHeight="96.0" prefWidth="1.0" />
-                  <Button fx:id="reset" layoutX="448.0" layoutY="42.0" mnemonicParsing="false" onAction="#reset" prefHeight="14.0" prefWidth="128.0" text="Reset">
+                  <Button fx:id="reset" layoutX="568.0" layoutY="19.0" mnemonicParsing="false" onAction="#reset" prefHeight="14.0" prefWidth="128.0" text="Reset">
                      <font>
                         <Font size="10.0" />
                      </font>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
                   </Button>
                   <DatePicker fx:id="date_search1" layoutX="267.0" layoutY="30.0" prefHeight="25.0" prefWidth="150.0" promptText="дд.мм.рррр" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="285.0" prefWidth="598.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="285.0" prefWidth="598.0">
                <children>
-                  <SplitPane dividerPositions="0.3691275167785235" layoutX="178.0" layoutY="82.0" prefHeight="305.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                  <SplitPane dividerPositions="0.3132183908045977" layoutX="178.0" layoutY="82.0" prefHeight="357.0" prefWidth="698.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
                               <ListView fx:id="listView" layoutX="14.0" layoutY="41.0" onMouseClicked="#work" prefHeight="303.0" prefWidth="217.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="303.0" prefWidth="388.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="303.0" prefWidth="466.0">
                            <children>
-                              <Button layoutX="82.0" layoutY="215.0" mnemonicParsing="false" onAction="#booking" prefHeight="46.0" prefWidth="209.0" text="Booking">
+                              <Button layoutX="133.0" layoutY="201.0" mnemonicParsing="false" onAction="#booking" prefHeight="46.0" prefWidth="209.0" text="Booking">
                                  <font>
                                     <Font name="Times New Roman" size="24.0" />
                                  </font>
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
                               </Button>
-                              <Separator layoutX="-37.0" layoutY="73.0" prefHeight="6.0" prefWidth="418.0" />
-                              <Label fx:id="city_out" alignment="BASELINE_CENTER" layoutX="14.0" layoutY="22.0" prefHeight="38.0" prefWidth="144.0">
+                              <Separator layoutY="67.0" prefHeight="6.0" prefWidth="475.0" />
+                              <Label fx:id="city_out" alignment="BASELINE_CENTER" layoutX="65.0" layoutY="22.0" prefHeight="38.0" prefWidth="144.0">
                                  <font>
                                     <Font name="Times New Roman" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="city_in" alignment="BASELINE_CENTER" layoutX="215.0" layoutY="22.0" prefHeight="38.0" prefWidth="144.0">
+                              <Label fx:id="city_in" alignment="BASELINE_CENTER" layoutX="266.0" layoutY="22.0" prefHeight="38.0" prefWidth="144.0">
                                  <font>
                                     <Font name="Times New Roman" size="18.0" />
                                  </font>
                               </Label>
-                              <Label alignment="BASELINE_CENTER" layoutX="168.0" layoutY="22.0" prefHeight="38.0" prefWidth="37.0" text="-">
+                              <Label alignment="BASELINE_CENTER" layoutX="219.0" layoutY="22.0" prefHeight="38.0" prefWidth="37.0" text="-">
                                  <font>
                                     <Font name="Times New Roman" size="18.0" />
                                  </font>
@@ -85,16 +94,26 @@
                               <Label layoutX="36.0" layoutY="119.0" prefHeight="17.0" prefWidth="101.0" text="Час прибуття:" />
                               <Label fx:id="time_out" layoutX="171.0" layoutY="92.0" />
                               <Label fx:id="time_in" layoutX="173.0" layoutY="119.0" />
-                              <Label fx:id="date" layoutX="158.0" layoutY="14.0" prefHeight="25.0" prefWidth="58.0" />
+                              <Label fx:id="date" layoutX="209.0" layoutY="14.0" prefHeight="25.0" prefWidth="58.0" />
                               <Label layoutX="36.0" layoutY="143.0" text="Кількість вільних місць:" />
                               <Label fx:id="seats" layoutX="181.0" layoutY="143.0" />
                            </children>
                         </AnchorPane>
-                    </items>
+                     </items>
                   </SplitPane>
                </children>
             </AnchorPane>
-        </items>
+         </items>
       </SplitPane>
+      <Button fx:id="b_close" layoutX="586.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" prefHeight="80.0" prefWidth="80.0">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="80.0" prefWidth="80.0" text="←">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
    </children>
-</VBox>
+</AnchorPane>

@@ -25,10 +25,13 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class Controller implements Initializable{
 	
+	@FXML Button b_close;
 	@FXML
 	Button reset;
 	@FXML
@@ -72,7 +75,8 @@ public class Controller implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			
+			Image imageDecline_close = new Image(getClass().getResourceAsStream("../img/Close.png"));
+			b_close.setGraphic(new ImageView(imageDecline_close));
 			Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/freemove", "root", "root");
 			Statement myStmt = myConn.createStatement();
 			ResultSet myRs = myStmt.executeQuery("select * from train");
@@ -313,9 +317,23 @@ public class Controller implements Initializable{
 		}		
 	}
 	
+	@FXML
+	private void close(ActionEvent event_close){
+		System.exit(0);
+	}
+	
+	@FXML
+	private void back(ActionEvent event_back) throws IOException{
+		Scene menu1_ua_scene = new Scene(FXMLLoader.load(getClass().getResource("../Menu5.fxml")));
+		menu1_ua_scene.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
+		Stage menu1_ua_stage = (Stage) ((Node) event_back.getSource()).getScene().getWindow();
+		menu1_ua_stage.setScene(menu1_ua_scene);
+		menu1_ua_stage.show();
+	}
+	
 	public void booking(ActionEvent event) throws IOException {
 		Scene booking = new Scene(FXMLLoader.load(getClass().getResource("booking.fxml")));
-		//booking.getStylesheets().add(getClass().getResource("./application.css").toExternalForm());
+		booking.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
 		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		app_stage.setScene(booking);
 		app_stage.show();

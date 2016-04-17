@@ -17,14 +17,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Booking implements Initializable{
 
+	
 	int s = 0;
 	@FXML Pane p1;
 	@FXML Pane p2;
@@ -48,6 +52,7 @@ public class Booking implements Initializable{
 	@FXML Label vag_number;
 	@FXML Label how_many;
 	@FXML Label how_much;
+	@FXML Button b_close;
 	String vagon_number;
 	static String v;
 	static String N;
@@ -55,6 +60,8 @@ public class Booking implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		Image imageDecline_close = new Image(getClass().getResourceAsStream("../img/Close.png"));
+		b_close.setGraphic(new ImageView(imageDecline_close));
 		vagonu = FXCollections.observableArrayList(
 				"Вагон 1","Вагон 2","Вагон 3");
 		city_out= FXCollections.observableArrayList(
@@ -126,21 +133,21 @@ public class Booking implements Initializable{
 		vag_number.setText(v);
 		if("Вагон 1".equals(v)){
 			Scene booking = new Scene(FXMLLoader.load(getClass().getResource("booking.fxml")));
-			//booking.getStylesheets().add(getClass().getResource("./application.css").toExternalForm());
+			booking.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
 			Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 			app_stage.setScene(booking);
 			app_stage.show();
 		}
 		if("Вагон 2".equals(v)){
 			Scene booking = new Scene(FXMLLoader.load(getClass().getResource("vagon2.fxml")));
-			//booking.getStylesheets().add(getClass().getResource("./application.css").toExternalForm());
+			booking.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
 			Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 			app_stage.setScene(booking);
 			app_stage.show();
 		}
 		if("Вагон 3".equals(v)){
 			Scene booking = new Scene(FXMLLoader.load(getClass().getResource("vagon3.fxml")));
-			//booking.getStylesheets().add(getClass().getResource("./application.css").toExternalForm());
+			booking.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
 			Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 			app_stage.setScene(booking);
 			app_stage.show();
@@ -368,5 +375,19 @@ public class Booking implements Initializable{
 		how_many.setText(Integer.toString(s)+" місць обранно.");
 		how_much.setText(Integer.toString(s * 50)+"грн.");
 		s = 0;
+	}
+	
+	@FXML
+	private void close(ActionEvent event_close){
+		System.exit(0);
+	}
+	
+	@FXML
+	private void back(ActionEvent event_back) throws IOException{
+		Scene menu1_ua_scene = new Scene(FXMLLoader.load(getClass().getResource("main_booking.fxml")));
+		menu1_ua_scene.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
+		Stage menu1_ua_stage = (Stage) ((Node) event_back.getSource()).getScene().getWindow();
+		menu1_ua_stage.setScene(menu1_ua_scene);
+		menu1_ua_stage.show();
 	}
 }

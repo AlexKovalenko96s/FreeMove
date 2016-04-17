@@ -12,7 +12,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import ua.tlz.freeMove.scene.Controller_login;
-import ua.tlz.freeMove.scene.MainMenu;
 import ua.tlz.freeMove.scene.User_experience.User_experience;
 
 public class Main extends Application {
@@ -35,6 +34,7 @@ public class Main extends Application {
 			primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("scene/img/ico.png")));
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			 System.out.println(System.getProperty("user.home"));
 		}
 	}
 

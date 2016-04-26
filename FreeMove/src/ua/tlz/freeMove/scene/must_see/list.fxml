@@ -107,6 +107,7 @@
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
                                     <ListView fx:id="comments" fixedCellSize="0.0" layoutX="-1.0" prefHeight="87.0" prefWidth="485.0">
+                                       
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>

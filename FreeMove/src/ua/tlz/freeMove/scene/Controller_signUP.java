@@ -109,6 +109,7 @@ public class Controller_signUP {
 						email__.setVisible(false);
 						
 						fill_in_all_the_fields.setVisible(false);
+						password_correct.setVisible(false);
 						password_uncorrect.setVisible(true);
 
 						if (textPASSWORD.getText().equals(textREPEAT_PASSWORD.getText())) {

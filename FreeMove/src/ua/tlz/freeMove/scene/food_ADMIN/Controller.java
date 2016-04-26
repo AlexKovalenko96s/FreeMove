@@ -59,7 +59,7 @@ public class Controller implements Initializable{
 	
 	public void browse_MAP(ActionEvent e) {
 		JFileChooser fileChooser = new JFileChooser();
-		fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+		fileChooser.setCurrentDirectory(new File(System.getProperty("file.separator")));
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("*.IMAGE", "jpg", "gif", "png");
 		fileChooser.addChoosableFileFilter(filter);
 		int result = fileChooser.showSaveDialog(null);

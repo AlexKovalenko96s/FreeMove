@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,6 +26,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import ua.tlz.freeMove.scene.Controller_login;
 
 public class Booking implements Initializable{
 
@@ -55,6 +58,19 @@ public class Booking implements Initializable{
 	String vagon_number;
 	static String v;
 	static String N;
+	
+	public void chat(ActionEvent e) throws IOException{
+		if ("not_enter".equals(Controller_login.login) && "not_enter".equals(Controller_login.password)) {
+			JOptionPane.showMessageDialog(null, "You`re not login!");
+		}
+		else {
+			Scene chat_ua = new Scene(FXMLLoader.load(getClass().getResource("../Chat.fxml")));
+			chat_ua.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
+			Stage chat_ua_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+			chat_ua_stage.setScene(chat_ua);
+			chat_ua_stage.show();
+		}
+	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

@@ -132,5 +132,9 @@
             <InnerShadow />
          </effect>
       </Button>
+      <Button layoutX="493.0" layoutY="25.0" mnemonicParsing="false" onAction="#chat" text="Chat">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
    </children>
 </AnchorPane>
